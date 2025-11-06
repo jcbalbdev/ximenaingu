@@ -1,4 +1,5 @@
 <script lang="ts">
+  import spotifyicon from '$lib/images/Spotify-Icon-Black-Logo.svg';
   // Header simple y accesible para SvelteKit
   import { page } from '$app/stores';
 
@@ -51,7 +52,7 @@
   rel="noopener noreferrer"
 >
   <img
-    src="/src/lib/images/Spotify-Icon-Black-Logo.wine.svg"
+    src={spotifyicon}
     alt="Spotify logo"
     class="spotify-cta__icon"
   />
