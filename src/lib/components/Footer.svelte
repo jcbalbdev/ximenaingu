@@ -42,8 +42,8 @@
     </div>
 
     <nav class="footer-right">
-      <a href="/sobre-mi">Sobre mí</a>
-      <a href="/contacto">Contacto</a>
+      <a href="/about">Sobre mí</a>
+      <a href="/contact">Contacto</a>
     </nav>
   </div>
 </footer>
