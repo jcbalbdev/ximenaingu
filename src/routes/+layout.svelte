@@ -23,6 +23,14 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		background: linear-gradient(
+  180deg,
+  #2d3a2d 0%,
+  #5c5442 50%,
+  #8b7355 100%
+);
+background-attachment: fixed;
+min-height: 100vh;
 	}
 
 	main {
@@ -34,6 +42,7 @@
 		max-width: 90rem;
 		margin: 0 auto;
 		box-sizing: border-box;
+		
 	}
 
 

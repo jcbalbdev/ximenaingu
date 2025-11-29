@@ -77,10 +77,7 @@
 
   <!-- Contenido principal -->
   <div class="content">
-		<div class="corners">
-    <p class="tiny left">Singer & Songwriter</p>
-    <p class="tiny right">Desde 2021</p>
-  </div>
+		
     <h1 class="title">
       <span>XIMENA INGU</span>
     </h1>
@@ -133,7 +130,7 @@
 
     position: relative;
     min-height: 100vh;
-    background: var(--ink);
+    background: rgba(250,250,250,0.2);
     color: var(--text);
     overflow: hidden;
 
@@ -151,26 +148,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;       /* antes: cover */
-  object-position: right;   /* centra la imagen */
-  background: #111;       /* color de “letterbox” en los bordes */
+  object-position: right;   /* centra la imagen */      /* color de “letterbox” en los bordes */
   z-index: 1;
   filter: none;              /* opcional: evita oscurecer la imagen original */
 }
-  .overlay{
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, var(--card-grad-from) 0%, var(--card-grad-to) 100%);
-    z-index: 0;
-  }
-  /* Esquineros */
-  .corners .tiny{
-    position: absolute;
-    top: 18px;
-    font: 600 12px/1.2 Inter, system-ui, sans-serif;
-    color: var(--muted);
-    margin: 0;
-  }
-  .corners .tiny.left{ left: 20px; }
-  .corners .tiny.right{ right: 20px; text-align: right; }
+
 
   /* Contenido */
   .content{
@@ -201,13 +183,13 @@
     display: grid; place-items: center;
     width: 44px; height: 44px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,.18);
-    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(0, 0, 0, 0.68);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     cursor: pointer;
     transition: transform .08s ease, background .2s ease;
   }
-  .btn:hover{ background: rgba(255,255,255,.18); }
+  .btn:hover{ background: #121212; }
   .btn:active{ transform: scale(.98); }
   .btn.play{
     width: 56px; height: 56px; border-radius: 16px;
