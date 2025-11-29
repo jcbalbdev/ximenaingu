@@ -1,261 +1,325 @@
-<script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
-  import flora from '$lib/images/florayfaunaFINAL.jpg';
+<script>
+  import { onMount } from "svelte";
+import flora from '$lib/images/florayfaunaFINAL.jpg';
   import tren from '$lib/images/eltren.png';
   import desaparecer from '$lib/images/desaparecer.png';
+  let search = "";
+  let showAutocomplete = false;
+  let selected = "Todas";
 
-  // Canciones
-  const songs = [
-    { title: 'El Tren – Single',       year: 2024, cover: tren,        link: 'https://open.spotify.com/track/5YYNW4xC5fPQhGEjyDRyfT' },
-    { title: 'Flora y Fauna – Single', year: 2024, cover: flora,       link: 'https://open.spotify.com/track/2Hr06BCw7FiqElxJscmSlL' },
-    { title: 'Des-aparecer – Single',  year: 2023, cover: desaparecer, link: 'https://open.spotify.com/track/72wK2iEJjD9GqWCSqNjhsA' },
-		{ title: 'El Tren – Single',       year: 2024, cover: tren,        link: 'https://open.spotify.com/track/5YYNW4xC5fPQhGEjyDRyfT' },
-		{ title: 'Flora y Fauna – Single', year: 2024, cover: flora,       link: 'https://open.spotify.com/track/2Hr06BCw7FiqElxJscmSlL' },
-		{ title: 'Des-aparecer – Single',  year: 2023, cover: desaparecer, link: 'https://open.spotify.com/track/72wK2iEJjD9GqWCSqNjhsA' }
+  let filters = ["Todas", "Spotify", "YouTube", "YouTube Music", "Apple Music"];
+
+  let songs = [
+    {
+      title: "El Tren",
+      album: "Flora y Fauna",
+      image: tren,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify", "youtube"]
+    },
+    {
+      title: "Flora y Fauna",
+      album: "Flora y Fauna",
+      image: flora,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify", "youtube"]
+    },
+    {
+      title: "Des-aparecer",
+      album: "Singles",
+      image: desaparecer,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify"]
+    },
+    {
+      title: "Despertar",
+      album: "Singles",
+      image: tren,
+      url: "https://youtube.com/watch?v=xxxx",
+      platforms: ["youtube"]
+    },
+    {
+      title: "Raíces",
+      album: "Flora y Fauna",
+      image: flora,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify", "youtube"]
+    },
+    {
+      title: "Cielo Abierto",
+      album: "Singles",
+      image: desaparecer,
+      url: "https://youtube.com/watch?v=xxxx",
+      platforms: ["youtube"]
+    },
+    {
+      title: "Mariposa",
+      album: "Flora y Fauna",
+      image: flora,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify", "youtube"]
+    },
+    {
+      title: "Silencio",
+      album: "Singles",
+      image: desaparecer,
+      url: "https://open.spotify.com/track/xxxxx",
+      platforms: ["spotify"]
+    }
   ];
 
-  let rowEl: HTMLDivElement;
+  /** FILTRO PRINCIPAL (buscador + plataforma) */
+  $: filteredSongs =
+    songs.filter((song) => {
+      const textMatch =
+        song.title.toLowerCase().includes(search.toLowerCase()) ||
+        song.album.toLowerCase().includes(search.toLowerCase());
 
-  // Flechas (scroll casi una “pantalla” por clic)
-  function scrollNext() {
-    if (!rowEl) return;
-    rowEl.scrollBy({ left: rowEl.clientWidth * 0.9, behavior: 'smooth' });
-  }
-  function scrollPrev() {
-    if (!rowEl) return;
-    rowEl.scrollBy({ left: -rowEl.clientWidth * 0.9, behavior: 'smooth' });
-  }
+      const platformMatch =
+        selected === "Todas" ||
+        song.platforms.includes(selected.toLowerCase());
 
-  // Auto-scroll suave
-  const SPEED_PX = 1.2;
-  const TICK_MS = 18;
-  let autoTimer: number | undefined;
+      return textMatch && platformMatch;
+    });
 
-  function startAuto() {
-    stopAuto();
-    autoTimer = window.setInterval(() => {
-      if (!rowEl) return;
-      const { scrollLeft, scrollWidth, clientWidth } = rowEl;
-      if (scrollLeft + clientWidth >= scrollWidth - 1) {
-        rowEl.scrollTo({ left: 0, behavior: 'auto' });
-      } else {
-        rowEl.scrollLeft = scrollLeft + SPEED_PX;
-      }
-      updateEdges();
-    }, TICK_MS);
-  }
-
-  function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = undefined;
-    }
-  }
-
-  // Deshabilitar flechas al llegar a extremos
-  let atStart = true;
-  let atEnd = false;
-  function updateEdges() {
-    if (!rowEl) return;
-    const { scrollLeft, scrollWidth, clientWidth } = rowEl;
-    atStart = scrollLeft <= 2;
-    atEnd = scrollLeft + clientWidth >= scrollWidth - 2;
-  }
-
-  onMount(() => {
-    updateEdges();
-    const handler = () => updateEdges();
-    rowEl?.addEventListener('scroll', handler, { passive: true });
-    startAuto();
-    return () => {
-      rowEl?.removeEventListener('scroll', handler);
-      stopAuto();
-    };
-  });
-
-  // Pausar auto-scroll mientras el usuario interactúa
-  const pauseAuto = () => stopAuto();
-  const resumeAuto = () => startAuto();
+  /** AUTOCOMPLETADO */
+  $: suggestions =
+    search.length > 0
+      ? songs.filter((s) =>
+          (s.title + " " + s.album)
+            .toLowerCase()
+            .includes(search.toLowerCase())
+        )
+      : [];
 </script>
 
-<svelte:head>
-  <title>Música — Ximena Ingu</title>
-  <meta name="description" content="Canciones y singles de Ximena Ingu" />
-</svelte:head>
+<div class="page-wrapper">
 
-<section class="music" aria-label="Carrusel de singles">
-  <h1 class="section-title">Singles y EP</h1>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Música</h1>
+    <p>Explora todas las canciones de Ximena Ingü. Filtra por plataforma y encuentra tu próximo track favorito.</p>
 
-  <div class="carousel">
-    <!-- retroceder -->
-    <button
-      class="nav nav-left"
-      on:click={scrollPrev}
-      on:mouseenter={pauseAuto}
-      on:mouseleave={resumeAuto}
-      aria-label="Retroceder"
-      disabled={atStart}
-    >
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-        <path d="M6 6h2v12H6zM20 6v12l-10-6 10-6z" fill="currentColor"/>
-      </svg>
-    </button>
+    <!-- SEARCH WITH AUTOCOMPLETE -->
+    <div class="search-wrapper">
+      <input
+        type="text"
+        bind:value={search}
+        placeholder="Buscar por canción o álbum…"
+        on:input={() => (showAutocomplete = true)}
+        on:focus={() => (showAutocomplete = true)}
+      />
 
-    <!-- fila -->
-    <div
-      class="row"
-      bind:this={rowEl}
-      on:mouseenter={pauseAuto}
-      on:mouseleave={resumeAuto}
-    >
-      {#each songs as song}
-        <a class="card" href={song.link} target="_blank" rel="noopener noreferrer">
-          <div class="cover">
-            <img src={song.cover} alt={`Portada de ${song.title}`} />
-            <div class="overlay">
-              <svg viewBox="0 0 24 24" class="play-icon" aria-hidden="true">
-                <path d="M8 5v14l11-7z" fill="currentColor" />
-              </svg>
+      {#if showAutocomplete && suggestions.length > 0}
+        <div class="autocomplete">
+          {#each suggestions as item}
+            <div
+              class="suggestion"
+              on:click={() => {
+                search = item.title;
+                showAutocomplete = false;
+              }}
+            >
+              {item.title} — <span>{item.album}</span>
             </div>
-          </div>
-          <div class="info">
-            <p class="title">{song.title}</p>
-            <p class="year">{song.year}</p>
-          </div>
-        </a>
-      {/each}
+          {/each}
+        </div>
+      {/if}
     </div>
 
-    <!-- avanzar -->
-    <button
-      class="nav nav-right"
-      on:click={scrollNext}
-      on:mouseenter={pauseAuto}
-      on:mouseleave={resumeAuto}
-      aria-label="Avanzar"
-      disabled={atEnd}
-    >
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-        <path d="M16 6h2v12h-2zM4 6v12l10-6L4 6z" fill="currentColor"/>
-      </svg>
-    </button>
-  </div>
-</section>
+    <!-- PLATFORM FILTERS -->
+    <div class="filters">
+      {#each filters as f}
+        <button
+          class:selected={selected === f}
+          on:click={() => (selected = f)}
+        >
+          {f}
+        </button>
+      {/each}
+    </div>
+  </section>
+
+  <!-- GRID OF SONGS -->
+  <section class="music-grid">
+    {#each filteredSongs as song}
+      <a class="song-card" href={song.url} target="_blank">
+
+        <div class="image-wrapper">
+          <img src={song.image} alt={song.title} />
+
+          <button
+            class="play-btn"
+            on:click={(e) => {
+              e.preventDefault();
+              window.open(song.url, "_blank");
+            }}
+          >
+            ▶
+          </button>
+        </div>
+
+        <h3>{song.title}</h3>
+        <p>{song.album}</p>
+      </a>
+    {/each}
+  </section>
+
+</div>
 
 <style>
-  .music{
-    max-width:1300px;
-    margin:0 auto;
-    padding:clamp(24px,5vw,60px);
-    
-    font-family:Inter,system-ui,sans-serif;
+  .page-wrapper {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  .section-title{
-    font-size:clamp(22px,3vw,28px);
-    font-weight:700;
-    margin-bottom:16px;
-		color:#111;
-  }
-
-  /* Carrusel */
-  .carousel{ position:relative; }
-
-  .row{
-    display:flex;
-    gap:24px;
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding:10px 2px 6px;
-    scroll-snap-type:x mandatory;
-    scroll-padding-left:2px;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  /* ocultar scrollbar */
-  .row::-webkit-scrollbar{ height:0; }
-  .row{ scrollbar-width:none; }
-
-  /* === Tarjeta: 3 visibles en pantallas grandes === */
-  .card{
-    flex:0 0 auto;
-    width:calc((100% - 2 * 24px) / 3);
-    color:inherit;
-    text-decoration:none;
-    scroll-snap-align:start;
-    transition:transform .2s ease;
-  }
-  .card:hover{ transform:scale(1.02); }
-
-  /* Portada */
-  .cover{
-    position:relative;
-    border-radius:10px;
-    overflow:hidden;
-    aspect-ratio:1/1;
-    background:#1a1a1a;
-  }
-  .cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:opacity .3s ease;
-  }
-  .overlay{
-    position:absolute;
-    inset:0;
-    display:grid;
-    place-items:center;
-    background:rgba(0,0,0,.6);
-    opacity:0;
-    transition:opacity .25s ease;
-  }
-  .play-icon{
-    width:48px;
-    height:48px;
+  /* HERO BLOCK */
+  .hero {
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(18px);
     color:#fff;
-    transition:transform .25s ease;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    margin-bottom: 50px;
   }
-  .cover:hover .overlay{ opacity:1; }
-  .cover:hover .play-icon{ transform:scale(1.1); }
 
-  /* Info */
-  .info{ margin-top:10px; text-align:center; }
-  .title{ font-size:15px; font-weight:500; color:#111; margin:0 0 4px; }
-  .year{ font-size:13px; color:#aaa; margin:0; }
+  .search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 24px auto 0;
+  }
 
-  /* Flechas estilo reproductor */
-  .nav{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:2;
-    width:46px;
-    height:46px;
-    display:grid;
-    place-items:center;
-    background:#1e1e1e;
+  .search-wrapper input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+  }
+
+  /* AUTOCOMPLETE */
+  .autocomplete {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
     color:#fff;
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:12px;
-    cursor:pointer;
-    transition:background .2s ease, transform .08s ease, opacity .2s ease;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+    z-index: 0;
   }
-  .nav:hover{ background:#2a2a2a; }
-  .nav:active{ transform:translateY(-50%) scale(.98); }
-  .nav:disabled{ opacity:.35; cursor:default; }
-  .nav-left{ left:-4px; }
-  .nav-right{ right:-4px; }
 
-  /* === Móvil: 1 tarjeta por vista === */
-  @media (max-width: 900px){
-    .row{ gap:18px; }
-    .card{
-      width:100%;
-      max-width:100%;
-    }
-    .title{ font-size:14px; }
-    .nav{ width:42px; height:42px; border-radius:10px; }
+  .suggestion {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .suggestion:hover {
+    background: #121212;
+    border-radius: 14px;
+  }
+  .suggestion span {
+    color: #fff;
+  }
+
+  /* PLATFORM FILTERS */
+  .filters {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filters button {
+    padding: 6px 16px;
+    border-radius: 16px;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .filters button.selected {
+    background: white;
+    color: black;
+  }
+
+  /* GRID */
+  .music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 28px;
+  }
+
+  /* SONG CARD */
+  .song-card {
+    display: block;
+    text-decoration: none;
+    color: white;
+
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    transition: 0.25s;
+  }
+
+  .song-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+  }
+
+  /* IMAGE + PLAY BUTTON */
+  .image-wrapper {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  .play-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #1db954;
+    color: black;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s, transform 0.25s;
+  }
+
+  .image-wrapper:hover .play-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h3 {
+    margin: 12px 0 4px;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0;
+    color: #ccc;
   }
 </style>

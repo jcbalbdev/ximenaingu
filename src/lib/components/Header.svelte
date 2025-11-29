@@ -100,9 +100,9 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: saturate(1.1) blur(6px);
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #121212;
   }
 
   .container {
@@ -124,7 +124,7 @@
 
   .brand__name {
     font: 600 16px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
-    color: #111;
+    color: #fff;
     letter-spacing: 0.2px;
   }
 
@@ -143,10 +143,10 @@
     padding: 6px 2px;
     border-bottom: 2px solid transparent;
   }
-  .nav a:hover { color: #111; }
+  .nav a:hover { color: #fff; }
   .nav a.active {
-    color: #111;
-    border-color: #111;
+    color: #fff;
+    border-color: #fff;
   }
 
   .spotify-cta {

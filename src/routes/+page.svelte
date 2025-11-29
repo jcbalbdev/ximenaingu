@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
 	import FeatureRow from '$lib/components/FeatureRow.svelte';
+	import FeatureCards from "$lib/components/FeatureCards.svelte";
 
 	// Aquí ajustas tus datos reales
   const ARTIST = {
@@ -26,7 +27,7 @@
   albumImage={ARTIST.sideCardImage}
 />
 
-<FeatureRow />
+<FeatureCards />
 </section>
 
 
