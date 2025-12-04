@@ -1,6 +1,6 @@
 <script lang="ts">
   import bg from '$lib/images/ximenaflorayfauna.png'; // usa tu imagen grande de fondo
-
+  import logo from '$lib/images/logoIngu.png';
   // Párrafos que irán rotando
   const paragraphs = [
     'Ximena Ingu es una cantautora peruana que mezcla folk y pop electrónico. Sus letras exploran la naturaleza, la ciudad y la nostalgia.',
@@ -77,10 +77,14 @@
 
   <!-- Contenido principal -->
   <div class="content">
-		
-    <h1 class="title">
+		<img 
+  src={logo}
+  alt="Banner Preventa"
+  class="w-96 object-contain mx-auto -my-14"
+/>
+    <!-- <h1 class="title gallient">
       <span>XIMENA INGU</span>
-    </h1>
+    </h1> -->
 
     <!-- Reproductor de texto -->
     <div class="player">
@@ -106,7 +110,7 @@
     </div>
 
     <!-- Texto rotatorio -->
-    <p class="paragraph" role="status" aria-live="polite">{paragraphs[i]}</p>
+    <p class="paragraph gallient" role="status" aria-live="polite">{paragraphs[i]}</p>
 
     <!-- Indicadores -->
     <div class="dots" aria-hidden="true">
@@ -224,12 +228,19 @@
       text-align: left;
       font-size: clamp(34px, 10vw, 64px);
     }
-    .paragraph{ max-width: 100%; }
+    .paragraph{ max-width: 90%; }
     .sun{
       left: 50%;
       transform: translateX(-50%);
       bottom: 32%;
       opacity: .8;
     }
+  }
+    .gallient {
+    font-family: 'Gallient', system-ui, sans-serif;
+  }
+
+  .perrygot {
+    font-family: 'Perrygot', system-ui, sans-serif;
   }
 </style>

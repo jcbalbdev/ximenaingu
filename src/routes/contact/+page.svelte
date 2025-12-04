@@ -2,10 +2,10 @@
   // Luego puedes manejar el formulario con actions o un endpoint
 </script>
 
-<section class="max-w-6xl mx-auto px-6 py-20 text-white">
+<section class="max-w-6xl mx-auto px-6 py-20 text-white ">
 
   <!-- HEADER -->
-  <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-3xl px-10 py-10 text-center mb-16">
+  <div class="bg-black/60 backdrop-blur-xl  rounded-3xl px-10 py-10 text-center mb-16">
     <h1 class="text-4xl font-extrabold mb-4">Contacto</h1>
     <p class="text-gray-300 max-w-2xl mx-auto text-lg">
       ¿Eres una productora musical, sello discográfico o promotor de eventos? Conecta con el equipo de Ximena Ingü.
@@ -17,7 +17,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
     <!-- FORMULARIO -->
-    <div class="lg:col-span-2 bg-black/80 border border-white/10 rounded-3xl p-8 shadow-xl">
+    <div class="lg:col-span-2 bg-black/60  rounded-3xl p-8 shadow-xl">
 
       <form class="space-y-6">
 
@@ -89,7 +89,7 @@
         <!-- BOTÓN -->
         <button
           type="submit"
-          class="mt-4 w-full bg-white text-black font-semibold py-3 rounded-full text-lg hover:bg-gray-200 transition flex items-center justify-center gap-2"
+          class="mt-4 w-full bg-black/60 text-white font-semibold py-3 rounded-full text-lg hover:bg-[#121212] transition flex items-center justify-center gap-2"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -108,7 +108,7 @@
     <div class="flex flex-col gap-10">
 
       <!-- MANAGEMENT & BOOKING -->
-      <div class="bg-black/80 border border-white/10 rounded-3xl p-8 shadow-xl">
+      <div class="bg-black/60 border border-white/10 rounded-3xl p-8 shadow-xl">
         <h3 class="text-2xl font-bold mb-4">Para Management y Booking</h3>
 
         <p class="text-gray-300">
@@ -128,7 +128,7 @@
       </div>
 
       <!-- REDES SOCIALES -->
-      <div class="bg-black/80 border border-white/10 rounded-3xl p-8 shadow-xl">
+      <div class="bg-black/60 border border-white/10 rounded-3xl p-8 shadow-xl">
         <h3 class="text-2xl font-bold mb-6">Redes Sociales</h3>
 
         <div class="space-y-5 text-gray-300">

@@ -3,6 +3,7 @@
   import flora from '$lib/images/florayfaunaFINAL.jpg';
   import tren from '$lib/images/eltren.png';
   import desaparecer from '$lib/images/desaparecer.png';
+  import logo from '$lib/images/logoIngu.png';
 
   // Texto y enlaces principales
   export let artistName = 'Ximena Ingu';
@@ -41,11 +42,15 @@
 <section class="hero">
   <!-- Columna de texto -->
   <div class="copy">
-    <h1 class="title">
-      <span class="muted">{artistName}</span><br />
+    <img 
+  src={logo}
+  alt="Banner Preventa"
+  class="w-72 object-contain mx-auto -my-14"
+/>
+    <h1 class="title perrygot">
       {headline}
     </h1>
-    <p class="lead">{subtitle}</p>
+    <p class="lead gallient">{subtitle}</p>
 
     <div class="ctas">
       <a class="btn primary" href={spotifyArtistUrl} target="_blank" rel="noopener">Escuchar en Spotify</a>
@@ -143,7 +148,8 @@
     border-radius: 24px;
     box-shadow: 0 4px 30px rgba(0,0,0,.08);
   }
-.glass {
+  
+  .glass {
   background: rgba(255, 255, 255, 0.06); /* transparencia */
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -155,9 +161,9 @@
 }
   /* Texto */
   .copy { display:flex; flex-direction:column; justify-content:center; padding-right: 8px; }
-  .title { margin:0 0 16px; font:700 clamp(2rem, 3vw, 3.2rem)/1.1 Inter, system-ui, sans-serif; color:#fff; }
+  .title { margin:0 0 16px; font:500 clamp(2rem, 3vw, 3.2rem)/1.1 Inter, system-ui, sans-serif; font-size: 1.2rem; color:#fff; }
   .title .muted { color:#fff; font-weight:400; }
-  .lead { color:#fff; max-width: 42ch; margin: 0 0 24px; }
+  .lead { color:#fff; max-width: 42ch; margin: 0 0 24px; font-size: 1.1rem;}
   .ctas { display:flex; gap:12px; flex-wrap: wrap; }
   .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:14px; font:600 14px/1 Inter, sans-serif; text-decoration:none; transition:.2s; }
   .btn.primary { background: rgba(0, 0, 0, 0.6); color:#fff; }
@@ -253,5 +259,13 @@
     }
     .album-card { padding: 16px; }
     .album-title { font-size: 1rem; }
+  }
+
+  .gallient {
+    font-family: 'Gallient', system-ui, sans-serif;
+  }
+
+  .perrygot {
+    font-family: 'Perrygot', system-ui, sans-serif;
   }
 </style>

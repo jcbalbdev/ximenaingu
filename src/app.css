@@ -101,3 +101,17 @@ button:focus:not(:focus-visible) {
 	width: 1px;
 	white-space: nowrap;
 }
+@font-face {
+  font-family: 'Gallient';
+  src: url('/fonts/Gallient.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Perrygot';
+  src: url('/fonts/PERRYGOT.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+

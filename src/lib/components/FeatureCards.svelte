@@ -5,17 +5,17 @@
   export let items = [
     {
       title: "Último Lanzamiento",
-      description: "Descubre el nuevo single y guarda el track en tu biblioteca. Disponible en Spotify y YouTube.",
+      description: 'Escucha mi álbum debut "Flora y Fauna" en todas las plataformas digitales.',
       image: flora
     },
     {
       title: "Próximos Shows",
-      description: "Entérate de fechas, ciudades y preventas. Únete a la lista para recibir avisos anticipados.",
+      description: "Entérate de los próximos conciertos y eventos en los que puedes escuchar a Ximena en vivo.",
       image: tren
     },
     {
       title: "Comunidad",
-      description: "Súmate al newsletter y sé parte del club de fans: sorteos, merch y contenido detrás de cámaras.",
+      description: 'Únete a la "Comunidad Emocional"  en Whatsapp para recibir contenido exclusivo.',
       image: desaparecer
     }
   ];
