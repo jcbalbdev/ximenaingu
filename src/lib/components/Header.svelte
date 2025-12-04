@@ -1,5 +1,6 @@
 <script lang="ts">
   import spotifyicon from '$lib/images/Spotify-Icon-Black-Logo.svg';
+  import logo from '$lib/images/logoIngu.png';
   // Header simple y accesible para SvelteKit
   import { page } from '$app/stores';
 
@@ -27,7 +28,11 @@
   <nav class="container">
     <!-- Branding -->
     <a class="brand" href="/" aria-label="Ir a inicio">
-      <span class="brand__name">{artistName}</span>
+      <img 
+    src={logo}
+    alt="Banner Preventa"
+    class="w-14 object-contain mx-auto -my-8"
+  />
     </a>
 
     <!-- Navegación (desktop) -->
