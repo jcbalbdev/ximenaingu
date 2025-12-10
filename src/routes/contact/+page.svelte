@@ -19,87 +19,91 @@
     <!-- FORMULARIO -->
     <div class="lg:col-span-2 bg-black/60  rounded-3xl p-8 shadow-xl">
 
-      <form class="space-y-6">
+      <form
+  action="https://formsubmit.co/ximenaingu@gmail.com"
+  method="POST"
+  class="space-y-6"
+>
 
-        <!-- Nombre / Empresa -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label class="block font-semibold mb-2">Nombre completo *</label>
-            <input
-              type="text"
-              placeholder="Tu nombre"
-              class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
-            />
-          </div>
+  <!-- Configuración FormSubmit -->
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="box" />
+  <input type="hidden" name="_next" value="https://ximenaingu.vercel.app/contact" />
 
-          <div>
-            <label class="block font-semibold mb-2">Empresa / Sello</label>
-            <input
-              type="text"
-              placeholder="Nombre de tu empresa"
-              class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
-            />
-          </div>
-        </div>
+  <!-- Nombre / Empresa -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label class="block font-semibold mb-2">Nombre completo *</label>
+      <input
+        type="text"
+        name="nombre"
+        required
+        placeholder="Tu nombre"
+        class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
+      />
+    </div>
 
-        <!-- Email -->
-        <div>
-          <label class="block font-semibold mb-2">Correo electrónico *</label>
-          <input
-            type="email"
-            placeholder="correo@ejemplo.com"
-            class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
-          />
-        </div>
+    <div>
+      <label class="block font-semibold mb-2">Empresa / Productora</label>
+      <input
+        type="text"
+        name="empresa"
+        placeholder="Nombre de tu Productora"
+        class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
+      />
+    </div>
+  </div>
 
-        <!-- Teléfono -->
-        <div>
-          <label class="block font-semibold mb-2">Teléfono</label>
-          <input
-            type="text"
-            placeholder="+51 999 999 999"
-            class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
-          />
-        </div>
+  <!-- Email -->
+  <div>
+    <label class="block font-semibold mb-2">Correo electrónico *</label>
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="correo@ejemplo.com"
+      class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
+    />
+  </div>
 
-        <!-- Tipo de consulta -->
-        <div>
-          <label class="block font-semibold mb-2">Tipo de consulta *</label>
-          <select
-            class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white outline-none focus:border-white"
-          >
-            <option disabled selected>Selecciona una opción</option>
-            <option>Booking / Eventos</option>
-            <option>Prensa / Medios</option>
-            <option>Colaboraciones</option>
-            <option>Otros</option>
-          </select>
-        </div>
+  <!-- Teléfono -->
+  <div>
+    <label class="block font-semibold mb-2">Celular</label>
+    <input
+      type="text"
+      name="celular"
+      placeholder="+51 999 999 999"
+      class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
+    />
+  </div>
 
-        <!-- Mensaje -->
-        <div>
-          <label class="block font-semibold mb-2">Mensaje *</label>
-          <textarea
-            rows="4"
-            placeholder="Cuéntanos sobre tu propuesta..."
-            class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
-          ></textarea>
-        </div>
+  <!-- Mensaje -->
+  <div>
+    <label class="block font-semibold mb-2">Mensaje *</label>
+    <textarea
+      rows="4"
+      name="mensaje"
+      required
+      placeholder="Cuéntanos sobre tu propuesta..."
+      class="w-full px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 outline-none focus:border-white"
+    ></textarea>
+  </div>
 
-        <!-- BOTÓN -->
-        <button
-          type="submit"
-          class="mt-4 w-full bg-black/60 text-white font-semibold py-3 rounded-full text-lg hover:bg-[#121212] transition flex items-center justify-center gap-2"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
-               viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2 11 13"></path>
-            <path d="M22 2 15 22 11 13 2 9l20-7z"></path>
-          </svg>
-          Enviar Mensaje
-        </button>
+  <!-- BOTÓN -->
+  <button
+    type="submit"
+    class="mt-4 w-full bg-black/60 text-white font-semibold py-3 rounded-full text-lg hover:bg-[#121212] transition flex items-center justify-center gap-2"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+         viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 2 11 13"></path>
+      <path d="M22 2 15 22 11 13 2 9l20-7z"></path>
+    </svg>
+    Enviar Mensaje
+  </button>
 
-      </form>
+</form>
+
 
     </div>
 
@@ -123,7 +127,7 @@
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="m22 4-10 9L2 4"></path>
           </svg>
-          management@ximenaingu.com
+          ximenaingu@gmail.com
         </div>
       </div>
 

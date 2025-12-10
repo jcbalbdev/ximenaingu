@@ -10,7 +10,7 @@
   export let headline = 'Tu sonido, hoy';
   export let subtitle =
     'Explora sus canciones, entra en su mundo y siente cada track como una historia.';
-  export let spotifyArtistUrl = 'https://open.spotify.com/artist/XXXXXXXX';
+  export let spotifyArtistUrl = 'https://open.spotify.com/intl-es/album/5ugvsCEIPJfDq9OkpdzT41';
   export let videoUrl = 'https://www.youtube.com/watch?v=XXXXXXXX';
 
   // Panel central: IDs simples de Spotify (botones de texto)
@@ -53,8 +53,8 @@
     <p class="lead gallient">{subtitle}</p>
 
     <div class="ctas">
-      <a class="btn primary" href={spotifyArtistUrl} target="_blank" rel="noopener">Escuchar en Spotify</a>
-      <a class="btn ghost" href={videoUrl} target="_blank" rel="noopener">Ver videoclip</a>
+      <a class="btn primary" href="https://open.spotify.com/intl-es/album/5ugvsCEIPJfDq9OkpdzT41" target="_blank" rel="noopener">Escuchar en Spotify</a>
+      <a class="btn ghost" href="https://www.youtube.com/watch?v=0W7t0HhYRZE" target="_blank" rel="noopener">Ver videoclip</a>
     </div>
   </div>
 
@@ -122,7 +122,7 @@
       </div>
 
       <div class="album-card__footer">
-        <a class="btn-play" href={spotifyArtistUrl} target="_blank" rel="noopener">
+        <a class="btn-play" href="https://open.spotify.com/intl-es/album/5ugvsCEIPJfDq9OkpdzT41" target="_blank" rel="noopener">
           ▶ Escuchar en Spotify
         </a>
       </div>

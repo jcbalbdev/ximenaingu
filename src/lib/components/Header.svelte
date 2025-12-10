@@ -52,7 +52,7 @@
     <!-- CTA Spotify (desktop) -->
     <a
   class="spotify-cta"
-  href={spotifyUrl}
+  href="https://open.spotify.com/intl-es/album/5ugvsCEIPJfDq9OkpdzT41"
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -155,6 +155,7 @@
   }
 
   .spotify-cta {
+    background-color: #fff;
     justify-self: end;
     text-decoration: none;
     display: inline-flex;
@@ -163,13 +164,13 @@
     padding: 10px 14px;
     border-radius: 10px;
     border: 1px solid #111;
-    color: #111;
+    color: #121212;
     font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
   }
   .spotify-cta__icon {
     width: 1.2rem;
     height: 1.2rem;
-    fill: currentColor;
+    fill: #fff;
   }
 
   .menu-btn {
@@ -206,8 +207,8 @@
     }
 
     .mobile-sheet {
-      border-top: 1px solid #eee;
-      background: #fff;
+      
+      background: rgba(0, 0, 0, 0.5);
       padding: 8px 16px 16px;
     }
     .mobile-sheet ul {
@@ -221,15 +222,15 @@
       display: block;
       padding: 12px 4px;
       text-decoration: none;
-      color: #222;
+      color: #fff;
       border-radius: 8px;
     }
     .mobile-sheet a.active {
-      background: #f4f4f4;
+      background: #121212;
     }
     .mobile-cta a {
       text-align: center;
-      border: 1px solid #111;
+      border: 1px solid #fff;
       border-radius: 10px;
     }
   }

@@ -234,9 +234,9 @@
 
 <section id="como-comprar" class="bg-black/60 text-white py-20 px-6 text-center">
 
-  <h1 class="text-xl font-extrabold mb-4">
-    ¿CÓMO <span class="text-red-500">COMPRAR</span> TU ENTRADA?
-  </h1>
+  <h3 class="text-3xl font-extrabold mb-4">
+    ¿CÓMO COMPRAR TU ENTRADA?
+  </h3>
 
   <p class="text-gray-300 max-w-2xl mx-auto mb-12">
     Realiza tu compra de forma rápida y segura. Solo sigue estos simples pasos:
@@ -247,7 +247,7 @@
 
     <!-- PASO 1 -->
     <div class="glass p-10 rounded-2xl shadow-xl border border-white/10">
-      <h3 class="text-red-500 font-bold mb-2">PASO 1</h3>
+      <h3 class="text-yellow-400 font-bold mb-2">PASO 1</h3>
       <h4 class="font-bold text-2xl mb-4">Elige tu tipo de entrada</h4>
 
       <p class="text-gray-300 leading-relaxed">
@@ -260,30 +260,27 @@
 
     <!-- PASO 2 -->
     <div class="glass p-10 rounded-2xl shadow-xl border border-white/10">
-      <h3 class="text-red-500 font-bold mb-2">PASO 2</h3>
+      <h3 class="text-yellow-400 font-bold mb-2">PASO 2</h3>
       <h4 class="font-bold text-2xl mb-4">Haz clic en “Comprar”</h4>
 
       <p class="text-gray-300 leading-relaxed">
         El sistema abrirá automáticamente  
         <span class="font-bold text-white">WhatsApp</span>  
-        con un mensaje prellenado indicando:
-        <br />– Tipo de entrada  
-        <br />– Cantidad  
-        <br />– Total a pagar  
+        con un mensaje adecuado a tu selección.  
+        Solo confirma tu pedido y envíalo.
       </p>
     </div>
 
 
     <!-- PASO 3 -->
     <div class="glass p-10 rounded-2xl shadow-xl border border-white/10">
-      <h3 class="text-red-500 font-bold mb-2">PASO 3</h3>
+      <h3 class="text-yellow-400 font-bold mb-2">PASO 3</h3>
       <h4 class="font-bold text-2xl mb-4">Finaliza tu compra</h4>
 
       <p class="text-gray-300 leading-relaxed">
         Nuestro equipo te responderá por WhatsApp  
         para confirmar tu compra.  
-        Luego recibirás tu <span class="font-bold text-white">entrada digital</span>  
-        directamente en tu celular.
+        Y listo, ¡a disfrutar del concierto!
       </p>
     </div>
 
@@ -298,9 +295,9 @@
 
 <section id="entradas" class="py-20 px-6 bg-black/60 text-white">
 
-  <h1 class="text-center text-4xl font-extrabold mb-3 tracking-tight">
+  <h3 class="text-center text-3xl font-extrabold mb-3 tracking-tight">
     TICKETS <span class="text-yellow-400">FLORA & FAUNA</span>
-  </h1>
+  </h3>
 
   <p class="text-center text-gray-300 mb-14">
     Selecciona tu tipo de entrada favorito.
@@ -428,10 +425,10 @@
     
     <img src={eventImg} class="w-full h-full object-cover rounded-l-2xl" />
     <div class="glass bg-white/20  p-10  text-white rounded-r-2xl">
-      <h3 class="text-3xl font-extrabold mb-6">¡EL FESTIVAL DEL PERÚ!</h3>
-      <h4 class="text-4xl font-extrabold mb-4">
+      
+      <h3 class="text-3xl font-extrabold mb-4">
         Flora y Fauna en el Teatro
-      </h4>
+      </h3>
       <p class="leading-relaxed text-white/90">
         Aquí vibra el Perú entero.  
         Un show íntimo, emocional y único.  
