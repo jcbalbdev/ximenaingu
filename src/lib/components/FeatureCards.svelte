@@ -1,30 +1,35 @@
 <script>
   import flora from '$lib/images/florayfaunaFINAL.jpg';
-  import tren from '$lib/images/eltren.png';
+  import tren from '$lib/images/ximenaFlyerhor.jpg';
   import desaparecer from '$lib/images/desaparecer.png';
+
   export let items = [
     {
       title: "Último Lanzamiento",
       description: 'Escucha mi álbum debut "Flora y Fauna" en todas las plataformas digitales.',
-      image: flora
+      image: flora,
+      url: "https://open.spotify.com/intl-es/album/5ugvsCEIPJfDq9OkpdzT41"      // 👉 Página interna
     },
     {
       title: "Próximos Shows",
-      description: "Entérate de los próximos conciertos y eventos en los que puedes escuchar a Ximena en vivo.",
-      image: tren
+      description: "Entérate de los próximos conciertos y eventos en los que puedes escuchar a Ximena en vivo.",
+      image: tren,
+      url: "https://ximenaingu.vercel.app/shows"  // 👉 Link externo
     },
     {
       title: "Comunidad",
-      description: 'Únete a la "Comunidad Emocional"  en Whatsapp para recibir contenido exclusivo.',
-      image: desaparecer
+      description: 'Únete a la "Comunidad Emocional" en Whatsapp para recibir contenido exclusivo.',
+      image: desaparecer,
+      url: "https://chat.whatsapp.com/DPKFOQdpXzUB02Pg0M8KQj?mode=hqrt2" // 👉 Grupo de WhatsApp
     }
   ];
 </script>
 
+
 <section class="feature-wrapper">
   <div class="feature-grid">
     {#each items as item}
-      <div class="feature-card">
+      <a class="feature-card" href={item.url} target="_blank" rel="noopener noreferrer">
         <div class="image">
           <img src={item.image} alt={item.title} />
         </div>
@@ -33,10 +38,11 @@
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </div>
-      </div>
+      </a>
     {/each}
   </div>
 </section>
+
 
 <style>
   .feature-wrapper {
@@ -52,6 +58,9 @@
   }
 
   .feature-card {
+    display: block; 
+    text-decoration: none;
+  color: inherit;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 18px;
